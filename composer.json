@@ -1,0 +1,16 @@
+{
+    "name": "andrzej/solid",
+    "description": "Examples solid",
+    "autoload": {
+        "psr-4": {
+            "Andrzej\\Solid\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Andrzej Szelka",
+            "email": "szelkaandrzej@gmail.com"
+        }
+    ],
+    "require": {}
+}
