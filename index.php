@@ -14,6 +14,13 @@ use Andrzej\Solid\I\example1\FutureCar;
 use Andrzej\Solid\L\example1\Service\EmailService;
 use Andrzej\Solid\L\example1\Service\FirstEmailService;
 use Andrzej\Solid\L\example1\Service\SecondEmailService;
+use Andrzej\Solid\L\example2\AreaCalculator;
+use Andrzej\Solid\L\example2\Rectangle as Example2Rectangle;
+use Andrzej\Solid\L\example2\Square;
+use Andrzej\Solid\L\example3\EmailNotifier;
+use Andrzej\Solid\L\example3\Notification;
+use Andrzej\Solid\L\example3\Notify;
+use Andrzej\Solid\L\example3\SMSNotifier;
 use Andrzej\Solid\O\example1\AreaCalculation;
 use Andrzej\Solid\O\example1\Circle;
 use Andrzej\Solid\O\example1\Rectangle;
@@ -119,6 +126,32 @@ $emailService->sendMessage(
 );
 
 echo "\n\n";
+
+echo "-> Example 2\n\n";
+
+$shapes = [
+    new Example2Rectangle(5, 3),
+    new Square(4),
+    new Example2Rectangle(2, 8),
+    new Square(6),
+];
+
+$areaCalculator = new AreaCalculator();
+$totalArea = $areaCalculator->getTotalArea($shapes);
+
+echo "Total area of shapes: " . $totalArea . PHP_EOL . PHP_EOL;
+
+echo "-> Example 3\n\n";
+
+$notification = new Notification('Test Message');
+
+$notify = new Notify();
+
+// Send Email Notification
+$notify->send(new EmailNotifier($notification))->to('fake@email-fake.com');
+
+// Send SMS Notification
+$notify->send(new SMSNotifier($notification))->to('+19999999999');
 
 echo SEPARATOR;
 
