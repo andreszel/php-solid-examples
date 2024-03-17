@@ -17,4 +17,9 @@ class Rectangle implements ShapeInterface
     {
         return $this->width * $this->height;
     }
+
+    public function about(): void
+    {
+        echo __CLASS__." - calculating area! Width: " . $this->width . ", height: " . $this->height . ", area = " . $this->area() . "\n";
+    }
 }

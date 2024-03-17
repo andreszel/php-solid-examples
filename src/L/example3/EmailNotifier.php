@@ -14,6 +14,6 @@ class EmailNotifier implements NotifierInterface
     public function send($to)
     {
         // Email Logic Here
-        echo "Send Email Notifier! \n\n";
+        echo "Send Email Notifier!\nMessage text: " . $this->notification->message() . "\n\n";
     }
 }

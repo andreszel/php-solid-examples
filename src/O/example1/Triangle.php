@@ -2,7 +2,7 @@
 
 namespace Andrzej\Solid\O\example1;
 
-class Triangle implements IShape
+class Triangle implements ShapeInterface
 {
     private float $base;
     private float $height;

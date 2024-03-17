@@ -4,9 +4,9 @@ namespace Andrzej\Solid\O\example2;
 
 class Payment
 {
-    private IPayable $type;
+    private PayableInterface $type;
 
-    public function __construct(IPayable $type) {
+    public function __construct(PayableInterface $type) {
         $this->type = $type;
     }
 

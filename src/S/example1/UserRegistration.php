@@ -7,8 +7,8 @@ use Andrzej\Solid\S\example1\Entity\User;
 class UserRegistration
 {
     public function __construct(
-        private RegisterStorage $storage,
-        private RegisterEmail $email
+        private RegisterStorageInterface $storage,
+        private RegisterEmailInterface $email
     ) {
     }
 

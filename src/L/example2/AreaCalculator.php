@@ -16,6 +16,7 @@ class AreaCalculator
             }
 
             $totalArea += $shape->area();
+            $shape->about();
         }
 
         return $totalArea;

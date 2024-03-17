@@ -15,4 +15,9 @@ class Square implements ShapeInterface
     {
         return $this->side**2;
     }
+
+    public function about(): void
+    {
+        echo __CLASS__." - calculating area! Side = " . $this->side . ", area = " . $this->area() . "\n";
+    }
 }

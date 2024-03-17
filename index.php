@@ -66,7 +66,6 @@ echo "Powierzchnia prostokata: " . $areaCalculation->area(new Rectangle(8.4, 14.
 echo "Powierzchnia trojkata: " . $areaCalculation->area(new Triangle(8, 12.9)) . "\n";
 
 echo "\n";
-
 echo "-> Example 2\n\n";
 
 echo "strategy pattern\n";
@@ -81,17 +80,26 @@ $payment = $paymentFactory->initializePayment('wire');
 $payment->pay();
 echo "\n";
 
+
 echo "-> Example 3\n";
 
 echo SEPARATOR;
 
 /*
     Funkcje które używają wskaźników lub referencji do klas bazowych, muszą być w stanie używać również obiektów klas dziedziczących po klasach bazowych,
-    bez dokładnej znajomości tych obiektów. Zasada ta jest rozszerzeniem zasady Open-closed, mówiąc prostym językiem zasada mówi o tym,
-    że jeżeli klasa X jest podtypem klasy Y - dziedziczy po klasie Y to obiekty klasy Y muszą być zamienialne z klasą S bez zmiany funkcjonalności,
-    czyli powinniśmy napisać program tak, że jeżeli zamienimy w programie na inną klasę, która dziedziczy po klasie T to program nadal
-    będzie działał poprawnie, a jego funkcjonalność się nie zmieni, czyli klasy muszą być wymienne, efekt taki możemy osiągnąć tylko jeżeli 2 klasy
-    będą miały wspólny interfejs, wtedy możemy stosować klasy zamiennie jako parametry, bo wstrzykujemy interfejs
+    bez dokładnej znajomości tych obiektów.
+    Zasada ta jest rozszerzeniem zasady Open-closed, mówiąc prostym językiem zasada mówi o tym,
+    że  klasa dziedzicząca powinna tylko rozszerzać możliwości klasy bazowej i w pewnym sensiie nie zmieniać tego, co ona robiła już wcześniej.
+    Mówiąc jeszcze inaczej - jeżli będziemy tworzyć egzemplarz klasy potomnej, to niezależnie od tego, co znajduje się we wskaźniku na zmienną,
+    wywołanie metody, którą pierwotnie zdefiniowano w klasie bazowej, powinno dać te same rezultaty. LSP można przestawić na przykładzie abstrakcyjnym:
+    ###
+    - Mamy klasę A z metodą MyMethod, która zwraca wartość Z
+    - Tworzymy klasę B, która dziedziczy po klasie A
+    - Niezależnie od sposobu utworzenia klasy A oraz klasy B:
+    A obA = new A(); B obB = new B(); B obB2 = new B();
+    Musi zajść równość: obA.myMethod == obB.myMethod == obB2.myMethod
+    W innym przypadku dochodzi do pogwałcenia zasady LSP
+    ###
 
     Zasada ta wymusza spełnienie 6 warunków-zasad, abyśmy mogli powiedzieć, że kod spełnia zasadę Liskov
     
@@ -105,7 +113,8 @@ echo SEPARATOR;
     6. Parametry wstrzykiwane do konstruktora nie mogą być modyfikowane w metodzie
 */
 
-echo "[ Liskov substitution principle - zasada podstawienia Liskov ]\n\n";
+echo "[ Liskov substitution principle - zasada podstawienia Liskov ]\n";
+echo "Znanym przykładem jest porównanie kaczek, gdzie jest jedna prawdziwa, a druga gumowa. Dokładnie brzmi to tak, że jeżeli coś wygląda jak kaczka, kwacze jak kaczka, ale potrzebuje baterii, to prawdopodobnie masz złą abstrakcję.\n\n";
 
 echo "-> Example 1\n\n";
 
@@ -143,7 +152,7 @@ echo "Total area of shapes: " . $totalArea . PHP_EOL . PHP_EOL;
 
 echo "-> Example 3\n\n";
 
-$notification = new Notification('Test Message');
+$notification = new Notification('Test Message Notification');
 
 $notify = new Notify();
 
@@ -152,6 +161,14 @@ $notify->send(new EmailNotifier($notification))->to('fake@email-fake.com');
 
 // Send SMS Notification
 $notify->send(new SMSNotifier($notification))->to('+19999999999');
+
+echo SEPARATOR;
+
+echo "-> Example 4\n\n";
+
+
+
+echo "\n\n";
 
 echo SEPARATOR;
 

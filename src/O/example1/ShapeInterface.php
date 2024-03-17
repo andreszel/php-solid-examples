@@ -2,7 +2,7 @@
 
 namespace Andrzej\Solid\O\example1;
 
-interface IShape
+interface ShapeInterface
 {
     public function area(): float;
 }

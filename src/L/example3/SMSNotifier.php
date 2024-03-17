@@ -14,6 +14,6 @@ class SMSNotifier implements NotifierInterface
     public function send($to)
     {
         // SMS Logic Here
-        echo "Send SMS Notifier! \n\n";
+        echo "Send SMS Notifier!\nMessage text: " . $this->notification->message() . "\n\n";
     }
 }

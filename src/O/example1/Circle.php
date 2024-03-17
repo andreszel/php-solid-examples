@@ -2,7 +2,7 @@
 
 namespace Andrzej\Solid\O\example1;
 
-class Circle implements IShape
+class Circle implements ShapeInterface
 {
     private float $radius;
 

@@ -2,7 +2,7 @@
 
 namespace Andrzej\Solid\O\example2;
 
-class WirePayment implements IPayable
+class WirePayment implements PayableInterface
 {
     public function pay()
     {

@@ -2,7 +2,7 @@
 
 namespace Andrzej\Solid\O\example2;
 
-interface IPayable
+interface PayableInterface
 {
     public function pay();
 }

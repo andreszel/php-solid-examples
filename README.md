@@ -9,6 +9,8 @@ Zbiór zasad, sposób zaproponowany przez `Roberta Cecil Martina`, opisujący pi
 _Definicja_:
 
 Klasa powinna mieć tylko jedną odpowiedzialność (nigdy nie powinien istnieć więcej niż jeden powód do modyfikacji klasy).
+Przykład 1 - Rejestracja użytkownika
+Przykład 2 - Zapisywanie nowego użytkownika, ewentualne logowanie błędów w przypadku wystąpienia wyjątku
 
 ### [ O ] Open-closed principle - zasada otwarte-zamkniete
 

@@ -6,7 +6,7 @@ use Exception;
 
 class PaymentFactory
 {
-    public function initializePayment(string $type): IPayable
+    public function initializePayment(string $type): PayableInterface
     {
         if ($type == 'credit') {
             return new CreditCardPayment();

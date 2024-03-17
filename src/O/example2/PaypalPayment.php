@@ -2,7 +2,7 @@
 
 namespace Andrzej\Solid\O\example2;
 
-class PaypalPayment implements IPayable
+class PaypalPayment implements PayableInterface
 {
     public function pay()
     {

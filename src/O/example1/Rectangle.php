@@ -2,7 +2,7 @@
 
 namespace Andrzej\Solid\O\example1;
 
-class Rectangle implements IShape
+class Rectangle implements ShapeInterface
 {
     private float $width;
     private float $height;
