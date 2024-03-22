@@ -29,6 +29,11 @@ use Andrzej\Solid\O\example2\CreditCardPayment;
 use Andrzej\Solid\O\example2\Payment;
 use Andrzej\Solid\O\example2\PaymentFactory;
 use Andrzej\Solid\O\example2\PaypalPayment;
+use Andrzej\Solid\O\example3\correct\LoginService;
+use Andrzej\Solid\O\example3\correct\ThirdPartyUserAuthentication;
+use Andrzej\Solid\O\example3\correct\UserAuthentication;
+use Andrzej\Solid\O\example3\Entity\ThirdPartyUser;
+use Andrzej\Solid\O\example3\Entity\User as EntityUser;
 use Andrzej\Solid\S\example1\Entity\User;
 use Andrzej\Solid\S\example1\RegisterEmail;
 use Andrzej\Solid\S\example1\RegisterStorage;
@@ -82,6 +87,12 @@ echo "\n";
 
 
 echo "-> Example 3\n";
+
+$loginService = new LoginService();
+$loginService->login(new UserAuthentication(), new EntityUser());
+$loginService->login(new ThirdPartyUserAuthentication(), new EntityUser());
+$loginService->login(new UserAuthentication(), new ThirdPartyUser());
+$loginService->login(new ThirdPartyUserAuthentication(), new ThirdPartyUser());
 
 echo SEPARATOR;
 
